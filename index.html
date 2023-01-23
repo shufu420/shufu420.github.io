@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form>
+  <label for="message">Enter message:</label><br>
+  <input type="text" id="message" name="message"><br><br>
+  <button type="button" onclick="sendToDiscord()">Send</button>
+</form> 
+
+<script>
+  function sendToDiscord() {
+    // Get the message from the text box
+    var message = document.getElementById("message").value;
+    // Use the Discord API to send the message to the desired channel via webhook
+    // Your Discord webhook URL would go here
+    //e.g. https://discord.com/api/webhooks/webhook_id/webhook_token
+    fetch("https://discord.com/api/webhooks/webhook_id/webhook_token", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        "content": message
+      })
+    });
+  }
+</script>
+
+</body>
+</html>
